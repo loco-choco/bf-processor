@@ -1,0 +1,8 @@
+#ignore modelsim from quartus
+simulation/**
+db/**
+incremental_db/**
+output_files/**
+
+#ignore backup files
+*.bak
