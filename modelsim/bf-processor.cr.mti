@@ -1,0 +1,59 @@
+/home/locochoco/bf-processor/src/testbench_memory_datapath.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/testbench_memory_datapath.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package std_logic_textio
+-- Compiling entity testbench_memory_datapath
+-- Compiling architecture sim of testbench_memory_datapath
+
+} {} {}} /home/locochoco/bf-processor/src/regbank.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/regbank.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity regbank
+-- Compiling architecture synth of regbank
+
+} {} {}} /home/locochoco/bf-processor/src/instrdecoder.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/instrdecoder.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity instrdecoder
+-- Compiling architecture synth of instrdecoder
+
+} {} {}} /home/locochoco/bf-processor/src/memory_datapath.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/memory_datapath.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity memory_datapath
+-- Compiling architecture synth of memory_datapath
+** Warning: /home/locochoco/bf-processor/src/memory_datapath.vhd(53): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+
+} {} {}} /home/locochoco/bf-processor/src/mux2.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/mux2.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity mux2
+-- Compiling architecture synth of mux2
+
+} {} {}} /home/locochoco/bf-processor/src/addersubtractor.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/addersubtractor.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity addersubtractor
+-- Compiling architecture synth of addersubtractor
+
+} {} {}} /home/locochoco/bf-processor/src/registry.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/registry.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity registry
+-- Compiling architecture synth of registry
+
+} {} {}}
