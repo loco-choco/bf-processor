@@ -13,7 +13,7 @@ end;
 
 architecture synth of regbank is
 	subtype word_t is STD_LOGIC_VECTOR(width - 1 downto 0);
-	type memory_t is array(addr_width - 1 downto 0) of word_t;
+	type memory_t is array(2**addr_width - 1 downto 0) of word_t;
 	signal bank : memory_t;
 	function to_integer(constant vec: STD_LOGIC_VECTOR) return integer is
 		alias xvec: STD_LOGIC_VECTOR(vec'LENGTH - 1 downto 0) is vec;
@@ -31,7 +31,7 @@ begin
 process(Clk, Reset, Addr, WriteIn, WriteEnable)
 begin
 	if (Reset = '0') then
-		reset: for i in 0 to addr_width - 1 loop
+		reset: for i in 0 to 2**addr_width - 1 loop
 			bank(i) <= (others => '0');
 		end loop reset;
 	elsif rising_edge(Clk)then
