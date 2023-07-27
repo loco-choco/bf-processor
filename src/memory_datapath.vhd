@@ -42,13 +42,13 @@ architecture synth of memory_datapath is
 	signal StackPointer, StackData : STD_LOGIC_VECTOR(bf_width - 1 downto 0);
 	signal SPWriteEnable, SDWriteEnable : STD_LOGIC;
 begin
-	SPWriteEnable <= StackEnable and Memory;
-	SDWriteEnable <= StackEnable and not(Memory);
+	SPWriteEnable <= StackEnable and not(Memory);
+	SDWriteEnable <= StackEnable and Memory;
 	Data <= StackData;
 	-- Stack Logic
 	spreg: registry generic map(bf_width) port map(AdderSubtrResult, Clk, Reset, SPWriteEnable, StackPointer);
 	sdregbank: regbank generic map(bf_width, bf_width) port map(StackPointer, AdderSubtrResult, Clk, Reset, SDWriteEnable, StackData);
 	-- Incrementation and Decrementation logic
-	addsubmux: mux2 generic map(bf_width) port map(StackData, StackPointer, Memory, AdderSubtrInput);
+	addsubmux: mux2 generic map(bf_width) port map(StackPointer, StackData, Memory, AdderSubtrInput);
 	addersubtr: addersubtractor generic map(bf_width) port map(AdderSubtrInput, (0 => '1', others => '0'), Operation, AdderSubtrResult);
 end;

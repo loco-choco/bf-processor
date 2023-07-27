@@ -2,7 +2,7 @@ library IEEE; use IEEE.STD_LOGIC_1164.all;
 use IEEE.STD_LOGIC_TEXTIO.ALL; use STD.TEXTIO.all;
 entity testbench_memory_datapath is
 	generic(clk_period: time := 5 ns; clk_duty: real := 0.5;
-				reset_period: time := 27 ns);
+				reset_period: time := 20 ns);
 end;
 architecture sim of testbench_memory_datapath is
 	component memory_datapath generic(bf_width: integer);

@@ -2,7 +2,7 @@ library IEEE; use IEEE.STD_LOGIC_1164.all;
 use IEEE.STD_LOGIC_TEXTIO.ALL; use STD.TEXTIO.all;
 entity testbench_bf_processor is
 	generic(clk_period: time := 5 ns; clk_duty: real := 0.5; 
-		reset_period: time := 27 ns;
+		reset_period: time := 20 ns;
 		bf_width: integer := 8; pc_width : integer := 16;
 		instr_file: string := "../testbenches/tests/test01.txt";
 		expected_result_file: string := "../testbenches/tests/test01-expected.txt");
