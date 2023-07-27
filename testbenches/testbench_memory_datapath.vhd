@@ -20,13 +20,13 @@ architecture sim of testbench_memory_datapath is
 		alias xvec: STD_LOGIC_VECTOR(vec'LENGTH - 1 downto 0) is vec;
 		variable result: integer := 0;
 	begin
-   for i in xvec'RANGE loop
+   	for i in xvec'RANGE loop
 		result := result + result;
-      if xvec(i) = '1' then
-			result := result + 1;
-      end if;
-   end loop;
-   return result;
+      	if xvec(i) = '1' then
+		result := result + 1;
+    	end if;
+  	end loop;
+   		return result;
 	end to_integer;
 begin
 	dut: memory_datapath generic map(8) port map(clk, stack_enable, reset, memory, operation, current_data);
@@ -55,7 +55,7 @@ begin
 		variable errors: integer := 0;
 		begin
 			wait for reset_period;
-			FILE_OPEN(tv, "../src/memory-dp-test.txt", READ_MODE);
+			FILE_OPEN(tv, "../testbenches/memory-dp-test.txt", READ_MODE);
 			while not endfile(tv) loop
 				--change vectors on rising edge
 				wait until rising_edge(clk);
