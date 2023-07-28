@@ -6,9 +6,8 @@
 # Compile of instrdecoder.vhd was successful.
 # Compile of is_zero.vhd was successful.
 # Compile of instruction_datapath.vhd was successful with warnings.
-# Compile of foward_jumping_datapath.vhd was successful with warnings.
-# Compile of jumping_datapath.vhd was successful.
+# Compile of jumping_datapath.vhd was successful with warnings.
 # Compile of testbench_memory_datapath.vhd was successful.
 # Compile of instrs_from_file.vhd was successful.
 # Compile of testbench_bf_processor.vhd was successful.
-# 13 compiles, 0 failed with no errors.
+# 12 compiles, 0 failed with no errors.

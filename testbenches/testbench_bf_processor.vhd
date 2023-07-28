@@ -4,7 +4,7 @@ entity testbench_bf_processor is
 	generic(clk_period: time := 5 ns; clk_duty: real := 0.5; 
 		reset_period: time := 20 ns;
 		bf_width: integer := 8; pc_width : integer := 16;
-		instr_file: string := "../testbenches/tests/test01.txt";
+		instr_file: string := "../testbenches/tests/test01.bf";
 		expected_result_file: string := "../testbenches/tests/test01-expected.txt");
 end;
 architecture sim of testbench_bf_processor is
@@ -18,12 +18,10 @@ architecture sim of testbench_bf_processor is
 			Data: out STD_LOGIC_VECTOR(bf_width - 1 downto 0));
 	end component;
 	component instruction_datapath generic(pc_width: integer);
-		port(Clk: in STD_LOGIC;
+	port(Clk: in STD_LOGIC;
 			Reset: in STD_LOGIC;
-			-- pc override
-			Override: in STD_LOGIC;
-			PCOverride: in STD_LOGIC_VECTOR(pc_width - 1 downto 0);
-			--
+			Direction: in STD_LOGIC;
+			PCEnable: in STD_LOGIC;
 			-- instr regbank here
 			InstrPC: out STD_LOGIC_VECTOR(pc_width - 1 downto 0);
 			Instr: in STD_LOGIC_VECTOR(7 downto 0);
@@ -33,17 +31,14 @@ architecture sim of testbench_bf_processor is
 			Memory: out STD_LOGIC;
 			Operation: out STD_LOGIC);
 	end component;
-	component jumping_datapath generic(pc_width: integer; bf_width: integer);
-		port(Clk: in STD_LOGIC;
+	component jumping_datapath generic(jd_width: integer; bf_width: integer);
+	port(Clk: in STD_LOGIC;
 			Reset: in STD_LOGIC;
-			Operation: in STD_LOGIC;
 			JumpEnable: in STD_LOGIC;
+			Operation: in STD_LOGIC;
 			Data: in STD_LOGIC_VECTOR(bf_width - 1 downto 0);
-			-- foward jumping output
-			SearchingJump: out STD_LOGIC;
-			-- backward jumping output
-			Override: out STD_LOGIC;
-			PCOverride: out STD_LOGIC_VECTOR(pc_width - 1 downto 0));
+			Jumping: out STD_LOGIC;
+			Direction: out STD_LOGIC);
 	end component;
 	----------------
 	component instrs_from_file 
@@ -69,25 +64,26 @@ architecture sim of testbench_bf_processor is
 	signal stack_enable: STD_LOGIC;
 	signal data: STD_LOGIC_VECTOR(bf_width - 1 downto 0);
 	--related to instruction datapath	
-	signal override: STD_LOGIC;	
-	signal pc_override, instr_pc: STD_LOGIC_VECTOR(pc_width - 1 downto 0);
+	signal direction, pc_enable: STD_LOGIC;	
+	signal instr_pc: STD_LOGIC_VECTOR(pc_width - 1 downto 0);
 	signal instr: STD_LOGIC_VECTOR(7 downto 0);
 	signal action, memory, operation: STD_LOGIC;	
 	--related to jumping datapath
 	signal jump_enable: STD_LOGIC;
-	signal searching_jump: STD_LOGIC;
+	signal jumping: STD_LOGIC;
 	--
 	signal clk, reset: STD_LOGIC;
 begin
 	mem_dp: memory_datapath generic map(bf_width) port map(clk, stack_enable, reset, memory, operation, data);
-	instr_dp: instruction_datapath generic map(pc_width) port map(clk, reset, override, pc_override, 
+	instr_dp: instruction_datapath generic map(pc_width) port map(clk, reset, direction, pc_enable, 
 									instr_pc, instr,
 									action, memory, operation);
-	jump_dp: jumping_datapath generic map(pc_width, bf_width) port map(clk, reset, operation, jump_enable, data,
-									 searching_jump, override, pc_override);
+	jump_dp: jumping_datapath generic map(pc_width, bf_width) port map(clk, reset, jump_enable, operation, data,
+									 jumping, direction);
 	instr_ff: instrs_from_file generic map(pc_width, instr_file) port map(instr_pc, instr);	
 	--internal wiring
-	stack_enable <= not(action) and not(searching_jump);
+	pc_enable <= '1'; --untill we add IO, this will always be on
+	stack_enable <= not(action) and not(jumping);
 	jump_enable <= action and not (memory); --means that the instr is of type "[" or "]" (10X)
 	--clock
 	process begin
@@ -102,7 +98,6 @@ begin
 		reset <= '0'; wait for reset_period; reset <= '1'; --resets on '0'
 		wait;
 	end process;
-	stack_enable <= '1'; --always have the component enabled to updating
 	--run tests
 	process is
 		file tv: text;

@@ -67,6 +67,15 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Compiling architecture synth of memory_datapath
 ** Warning: /home/locochoco/bf-processor/src/memory_datapath.vhd(53): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
 
+} {} {}} /home/locochoco/bf-processor/src/jumping_datapath.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/jumping_datapath.vhd
+Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Compiling entity jumping_datapath
+-- Compiling architecture synth of jumping_datapath
+** Warning: /home/locochoco/bf-processor/src/jumping_datapath.vhd(40): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
+
 } {} {}} /home/locochoco/bf-processor/src/instruction_datapath.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/instruction_datapath.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
 -- Loading package STANDARD
@@ -74,15 +83,7 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package std_logic_1164
 -- Compiling entity instruction_datapath
 -- Compiling architecture synth of instruction_datapath
-** Warning: /home/locochoco/bf-processor/src/instruction_datapath.vhd(60): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
-
-} {} {}} /home/locochoco/bf-processor/src/jumping_datapath.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/jumping_datapath.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity jumping_datapath
--- Compiling architecture synth of jumping_datapath
+** Warning: /home/locochoco/bf-processor/src/instruction_datapath.vhd(53): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
 
 } {} {}} /home/locochoco/bf-processor/src/addersubtractor.vhd {1 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/addersubtractor.vhd
 Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
@@ -99,14 +100,5 @@ Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 
 -- Loading package std_logic_1164
 -- Compiling entity registry
 -- Compiling architecture synth of registry
-
-} {} {}} /home/locochoco/bf-processor/src/foward_jumping_datapath.vhd {2 {vcom -work work -2002 -explicit -stats=none /home/locochoco/bf-processor/src/foward_jumping_datapath.vhd
-Model Technology ModelSim - Intel FPGA Edition vcom 2020.1 Compiler 2020.02 Feb 28 2020
--- Loading package STANDARD
--- Loading package TEXTIO
--- Loading package std_logic_1164
--- Compiling entity foward_jumping_datapath
--- Compiling architecture synth of foward_jumping_datapath
-** Warning: /home/locochoco/bf-processor/src/foward_jumping_datapath.vhd(54): (vcom-1074) Non-locally static OTHERS choice is allowed only if it is the only choice of the only association.
 
 } {} {}}
