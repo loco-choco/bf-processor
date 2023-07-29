@@ -6,7 +6,6 @@ entity instruction_datapath is
 	port(Clk: in STD_LOGIC;
 			Reset: in STD_LOGIC;
 			Direction: in STD_LOGIC;
-			PCEnable: in STD_LOGIC;
 			-- instr regbank here
 			InstrPC: out STD_LOGIC_VECTOR(pc_width - 1 downto 0);
 			Instr: in STD_LOGIC_VECTOR(7 downto 0);
@@ -49,7 +48,7 @@ architecture synth of instruction_datapath is
 begin
 	InstrPC <= PC;
 	-- PC Logic
-	pcreg: registry generic map(pc_width) port map(NextPC, Clk, Reset, PCEnable, PC);
+	pcreg: registry generic map(pc_width) port map(NextPC, Clk, Reset, '1', PC);
 	nextpcresult: addersubtractor generic map(pc_width) port map(PC, (0 => '1', others => '0'), Direction, NextPC);
 	-- Decoding Logic
 	instrdecod: instrdecoder port map(Instr, Action, Memory, Operation);

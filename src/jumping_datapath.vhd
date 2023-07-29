@@ -39,8 +39,7 @@ begin
 	-- Depth Calculation
 	depth_calc: addersubtractor generic map(jd_width) port map(JumpDepth, (0=>'1', others => '0'), Operation, NextJumpDepth);
 	jd_reg: registry generic map(jd_width) port map(NextJumpDepth, Clk, Reset, JDEnable, JumpDepth);
-	JumpCondition <= IsDataZero when Operation = '0' else
-		         not(IsDataZero);
+	JumpCondition <= IsDataZero xor Operation;
 	JDEnable <= JumpEnable and (IsJumping or JumpCondition);
 	-- Is Jumping
 	is_jumping: is_zero generic map(jd_width) port map(JumpDepth, AtZeroJD);
