@@ -20,7 +20,7 @@ Handles the `[]`instructions.
 Handles the `.,` instructions.
 ![io_datapath](./screenshots/io_datapath.png)
 ## Tools Used
-This project was developed with Quartus Prime Lite (2020) (from this [nix package]())and uses VHDL as its main HDL language. The testbenches were coded for usage in the ModelSim that comes with Quartus.
+This project was developed with Quartus Prime Lite (2020) (from this [nix package](https://github.com/NixOS/nixpkgs/blob/nixos-23.05/pkgs/applications/editors/quartus-prime/default.nix)) and uses VHDL as its main HDL language. The testbenches were coded for usage in the ModelSim that comes with Quartus.
 
 ## Statistics
 These are statistics from compiling the top entity `bf_datapath` on Quartus for a MAX 10 device.
