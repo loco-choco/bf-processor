@@ -29,3 +29,9 @@ These are statistics from compiling the top entity `bf_datapath` on Quartus for 
 | Logic Elements | 2736 |
 | Registers | 2120 |
 | Pins | 52 |
+
+Execution times of different bf programs from ModelSim simulation.
+| .bf file | Name in Testbench | Execution Time (ns)|
+|---|---|---|
+| [Adding two values](https://en.wikipedia.org/wiki/Brainfuck#Adding_two_values) | test01.bf | 1346 |
+| [Ola Mundo!](https://pt.wikipedia.org/wiki/Brainfuck#Programa_Ol%C3%A1_Mundo) | test02.bf | 13850 |

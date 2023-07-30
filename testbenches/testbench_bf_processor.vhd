@@ -5,8 +5,7 @@ entity testbench_bf_processor is
 		reset_period: time := 20 ns;
 		bf_width: integer := 8; pc_width : integer := 16;
 		instr_file: string := "../testbenches/tests/test01.bf";
-		input_file: string := "../testbenches/tests/test01-input.txt";
-		expected_result_file: string := "../testbenches/tests/test01-expected.txt");
+		input_file: string := "../testbenches/tests/test01-input.txt");
 end;
 architecture sim of testbench_bf_processor is
 	-- components to be tested
